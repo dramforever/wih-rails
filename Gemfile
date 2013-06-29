@@ -22,7 +22,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem "bootstrap-sass", "~> 2.3.2.0"
 
 # 使用cucumber
-gem "cucumber-rails", git: 'https://github.com/cucumber/cucumber-rails.git', branch: 'master_rails4_test', :require => false
+gem 'rspec'
+gem "cucumber-rails", git: 'https://github.com/cucumber/cucumber-rails.git', branch: 'master_rails4_test', require: false
 
 # 使用database_cleaner
 gem 'database_cleaner'
