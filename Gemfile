@@ -21,12 +21,22 @@ gem 'coffee-rails', '~> 4.0.0'
 # 使用bootstrap
 gem "bootstrap-sass", "~> 2.3.2.0"
 
+# 使用fancybox
+gem "fancybox2-rails", "~> 0.2.4"
+
+# 使用paperclip
+gem "paperclip", git: 'https://github.com/thoughtbot/paperclip.git', branch: 'rails-4'
+
 # 使用cucumber
 gem 'rspec'
+gem "selenium-webdriver"
 gem "cucumber-rails", git: 'https://github.com/cucumber/cucumber-rails.git', branch: 'master_rails4_test', require: false
 
 # 使用database_cleaner
 gem 'database_cleaner'
+
+# 使用annotate
+gem 'annotate'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

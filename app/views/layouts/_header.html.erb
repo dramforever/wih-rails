@@ -1,0 +1,30 @@
+<header>
+  <div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <%= link_to "WIH", '/', id: "logo" %>
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+          <ul class="nav">
+            <li id="girl">
+              <%= link_to "女神", girl_path %>
+            </li>
+            <li id="boy">
+              <a href="#">男神</a>
+            </li>
+            <li id="mystery">
+              <a href="#">迷</a>
+            </li>
+          </ul>
+          <ul class="nav pull-right">
+            <li><button id="upload" class="btn btn-info" type="button">立即上传</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

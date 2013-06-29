@@ -6,14 +6,12 @@
 
 require 'cucumber/rails'
 
-require 'cucumber/rspec/doubles'
-
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
 # selectors in your step definitions to use the XPath syntax.
 # Capybara.default_selector = :xpath
 
-Capybara.run_server = false
+Capybara.run_server = true
 Capybara.register_driver(:selenium){ |app| Capybara::Selenium::Driver.new(app, { :browser => :chrome }) }
 Capybara.default_driver = :selenium
 

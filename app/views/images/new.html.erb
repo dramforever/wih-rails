@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="span4 offset2">
+    <%= form_for @image, :url => upload_path, :html => { :multipart => true, class: "form-horizontal" } do |form| %>
+      <div class="control-group">
+        <%= form.label :img, class: "control-label" %>
+        <div class="controls">
+          <%= form.file_field :img %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= form.label :gender, class: "control-label" %>
+        <div class="controls">
+          <label class="radio">男<%= form.radio_button "gender", "0", checked: true %></label>
+          <label class="radio">女<%= form.radio_button "gender", "1" %></label>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= form.submit "上传", class: "btn btn-primary" %>
+        </div>
+      </div>
+      
+    <% end %>
+  </div>
+</div>
