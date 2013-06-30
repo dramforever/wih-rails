@@ -16,8 +16,26 @@
 #
 
 class Image < ActiveRecord::Base
-  has_attached_file :img, :styles => { medium: "300x300>" }
+  before_save :default_values
+  has_attached_file :img, :styles => { medium: Proc.new { |instance| instance.resize }, large: "800x800>" }
+
   validates_attachment_presence :img
-  validates_attachment_size :img, :less_than => 2.megabytes
+  validates_attachment_size :img, :less_than => 5.megabytes
   validates_attachment_content_type :img, :content_type => [ "image/jpg" ,"image/jpeg", "image/png", "image/gif" ]
+
+  def resize
+    geo = Paperclip::Geometry.from_file(img.queued_for_write[:original])
+    if geo.width > geo.height
+      '480x320>'    # Horizontal Image
+    else
+      '320x480>'    # Vertical Image
+    end
+  end
+
+  private
+  def default_values
+    self.vote ||= 0
+    self.win  ||= 0
+    self.rate ||= 0
+  end
 end

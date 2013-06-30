@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 ready= ->
   $("#upload").on "click", ->
-    location.href = 'upload'
+    location.href = '/upload'
 $(document).ready(ready)
 $(document).on('page:load', ready)

@@ -5,13 +5,17 @@
 </div>
 
 <div class="center hero-unit">
-  <h3>现在就开始投票吧！</h3>
+  <h2>现在就开始投票吧！</h2>
   <div class="row">
     <div class="span4">
-      <a href="#" class="btn btn-info"><h3>女神</h3></a>
+      <%= link_to show_path(:girl), class: "btn btn-info" do %>
+        <h3>女神</h3>
+      <% end %>
     </div>
     <div class="span4 offset2">
-      <a href="#" class="btn btn-success"><h3>男神</h3></a>
+      <%= link_to show_path(:boy), class: "btn btn-info" do %>
+        <h3>男神</h3>
+      <% end %>
     </div>
   </div>
 </div>

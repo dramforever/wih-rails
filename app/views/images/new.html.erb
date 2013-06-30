@@ -1,3 +1,4 @@
+<% provide :title, "图片上传" %>
 <div class="row">
   <div class="span4 offset2">
     <%= form_for @image, :url => upload_path, :html => { :multipart => true, class: "form-horizontal" } do |form| %>

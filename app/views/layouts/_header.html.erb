@@ -11,13 +11,10 @@
         <div class="nav-collapse collapse navbar-responsive-collapse">
           <ul class="nav">
             <li id="girl">
-              <%= link_to "女神", girl_path %>
+              <%= link_to "女神", show_path(:girl) %>
             </li>
             <li id="boy">
-              <a href="#">男神</a>
-            </li>
-            <li id="mystery">
-              <a href="#">迷</a>
+              <%= link_to "男神", show_path(:boy) %>
             </li>
           </ul>
           <ul class="nav pull-right">

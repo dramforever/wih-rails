@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require fancybox
+//= require jquery.form.min
 //= require bootstrap
 //= require_tree .

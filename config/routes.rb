@@ -1,11 +1,8 @@
 WihRails::Application.routes.draw do
   
-  get "images/show"
-  get "images/new"
-  get "images/create"
-  get "about" => "static_pages#about"
-  get "feedback" => "static_pages#feedback"
-  get "help" => "static_pages#help"
+  get "about", to: "static_pages#about"
+  get "feedback", to: "static_pages#feedback"
+  get "help", to: "static_pages#help"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -14,9 +11,10 @@ WihRails::Application.routes.draw do
   root 'static_pages#home'
 
   resources :images
-  get 'upload' => 'images#new'
-  post 'upload' => 'images#create'
-  get 'girl' => 'images#show'
+  get 'upload', to: 'images#new'
+  post 'upload', to: 'images#create'
+  get 'show/:gender', to: 'images#show', as: :show
+  patch 'vote', to: 'images#edit'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
