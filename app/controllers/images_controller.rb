@@ -7,18 +7,17 @@ class ImagesController < ApplicationController
     else
       raise
     end
-    length = Image.where("gender = #{gender}").count
+    imgs = Image.where("gender = #{gender} AND has_inspect = 1").all
+    length = imgs.count
     if length<2
      raise "Too few pictures."
     end
-    ids = []
-    Image.where("gender = #{gender}").each do |img|
-      ids << img.id
-    end
-    random1 = ids.sample
-    random2 = ids.sample
+
+    random1 = imgs.sample
+    random2 = imgs.sample
+    
     while random2 == random1
-      random2 = ids.sample
+      random2 = imgs.sample
     end
     @image1 = Image.find random1
     @image2 = Image.find random2
@@ -63,6 +62,18 @@ class ImagesController < ApplicationController
       format.html { render :edit }
       format.json { render :partial => "edit.json" }
     end
+  end
+
+  def destroy
+    Image.find(params[:id]).destroy
+  end
+
+  def inspect
+    @inspect_images = Image.where(has_inspect: false).all
+  end
+
+  def examine
+    #TODO:build it to inspect the imgs
   end
 
   private

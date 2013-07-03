@@ -20,12 +20,12 @@
 }
 
 @mixin rounded-shine ($animation,$radius:10px) {
-  -webkit-animation-name: $animation; 
-  -webkit-animation-duration: 3s;
-  -webkit-animation-iteration-count: infinite; 
-  animation-name: $animation; 
-  animation-duration: 3s;
-  animation-iteration-count: infinite; 
+  /* -webkit-animation-name: $animation; 
+//  -webkit-animation-duration: 3s;
+//  -webkit-animation-iteration-count: infinite; 
+//  animation-name: $animation; 
+//  animation-duration: 3s;
+//  animation-iteration-count: infinite; */
   border-radius: $radius;
 }
 
