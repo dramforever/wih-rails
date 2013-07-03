@@ -1,0 +1,36 @@
+<div class="hero-unit">
+  <h1>看看哪个更火热！</h1>
+</div>
+
+<div class="hero-unit">
+  <div class="row">
+    <div class="span4 offset2">
+      <a href= <%= @image1.img.url :large %> class='fancy'><%= image_tag @image1.img.url(:medium) %></a>
+    </div>
+    <div class="span4">
+      <a href= <%= @image2.img.url :large %> class='fancy'><%= image_tag @image2.img.url(:medium) %></a>
+    </div>
+  </div>
+  <div class="row">
+    <%= form_for [@image1,@image2], url: "/vote.json" do |f| %>
+      <div class="span4 offset2">
+        <%= button_tag(type: 'submit', class: "btn btn-inverse offset1", id: "btn1") do %>
+          <i class="icon-ok icon-white"></i>
+        <% end %>
+      </div>
+      <div class="span4">
+        <%= button_tag(type: 'submit', class: "btn btn-inverse offset1", id: "btn2") do %>
+          <i class="icon-ok icon-white"></i>
+        <% end %>
+      </div>
+      <%= hidden_field_tag 'img1', @image1.id  %>
+      <%= hidden_field_tag 'img2', @image2.id  %>
+      <%= hidden_field_tag 'selected', 'none'  %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="span2 offset5">
+      <button id="refresh" class="btn btn-info"><i class="icon-refresh icon-white"></i>换两张</button>
+    </div>
+  </div>
+</div>

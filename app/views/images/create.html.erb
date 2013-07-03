@@ -1,0 +1,23 @@
+<% if @image.errors.any? %>
+  <div id="error_explanation">
+    <div class="row">
+      <div class="alert alert-error span4 offset4">
+        <i class="icon-exclamation-sign"></i>  啊！有了 <%= @image.errors.count %> 项错误！
+      </div>
+    </div>
+    <div class="row">
+    <% @image.errors.full_messages.each do |msg| %>
+      <div class="alert alert-error span4 offset4"><i class="icon-warning-sign"></i>  <%= msg %></li></div>
+    <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="alert alert-success span4 offset4">
+      <i class="icon-ok"></i>  上传成功！
+    </div>
+    <div class="span4 offset4">
+      <%= image_tag @image.img.url :large %>
+    </div>
+  </div>
+<% end %>
