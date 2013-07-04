@@ -16,11 +16,17 @@
         </div>
       </div>
       <div class="control-group">
+        <label class="control-label"><%= @details.question %></label>
+        <div class="controls">
+          <%= form.text_field :answar %>
+        </div>
+      </div>
+      <div class="control-group">
         <div class="controls">
           <%= form.submit "上传", class: "btn btn-primary" %>
         </div>
       </div>
-      
+
     <% end %>
   </div>
 </div>
