@@ -15,7 +15,7 @@ class ImagesController < ApplicationController
 
     random1 = imgs.sample
     random2 = imgs.sample
-    
+
     while random2 == random1
       random2 = imgs.sample
     end
@@ -25,6 +25,9 @@ class ImagesController < ApplicationController
 
   def new
     @image = Image.new
+    rand1 = rand 1..20
+    rand2 = rand 1..20
+    @details = { question: "#{  rand1 } + #{ rand2 } = ?", answer: rand1 + rand2 }
   end
 
   def create
