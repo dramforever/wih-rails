@@ -1,4 +1,9 @@
 <% provide(:title,"上传结果") %>
+<div class="row">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> span4 offset4"><%= value %></div>
+  <% end %>
+</div>
 <% if @image.errors.any? %>
   <div id="error_explanation">
     <div class="row">

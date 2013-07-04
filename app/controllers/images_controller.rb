@@ -1,3 +1,4 @@
+# coding: utf-8
 class ImagesController < ApplicationController
   def show
     if params[:gender] == "girl"
@@ -25,14 +26,21 @@ class ImagesController < ApplicationController
 
   def new
     @image = Image.new
-    rand1 = rand 1..20
-    rand2 = rand 1..20
+    rand1 = rand 1..50
+    rand2 = rand 1..50
     @details = { question: "#{  rand1 } + #{ rand2 } = ?", answer: rand1 + rand2 }
   end
 
   def create
     @image = Image.new(image_params)
-    @image.save
+    user_answer = params[:user_answer]
+    answer = params[:answer]
+    if user_answer.to_i == answer.to_i
+      @image.save
+    else
+      flash[:error] = "错误的验证回答！"
+      redirect_to upload_path
+    end
   end
 
   def edit
