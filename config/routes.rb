@@ -10,7 +10,12 @@ WihRails::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
 
-  resources :images
+  resources :images do
+    collection do
+      get 'inspect', to: 'images#inspect'
+    end
+  end
+
   get 'upload', to: 'images#new'
   post 'upload', to: 'images#create'
   get 'show/:gender', to: 'images#show', as: :show

@@ -13,6 +13,7 @@
 #  gender           :integer
 #  created_at       :datetime
 #  updated_at       :datetime
+#  has_inspect      :boolean
 #
 
 class Image < ActiveRecord::Base
@@ -20,8 +21,8 @@ class Image < ActiveRecord::Base
   has_attached_file :img, :styles => { medium: Proc.new { |instance| instance.resize }, large: "800x800>" }
 
   validates_attachment_presence :img
-  validates_attachment_size :img, :less_than => 5.megabytes
-  validates_attachment_content_type :img, :content_type => [ "image/jpg" ,"image/jpeg", "image/png", "image/gif" ]
+  validates_attachment_size :img, :less_than => 10.megabytes
+  validates_attachment_content_type :img, :content_type => [ "image/jpg" ,"image/jpeg", "image/png" ]
 
   def resize
     geo = Paperclip::Geometry.from_file(img.queued_for_write[:original])
@@ -37,5 +38,6 @@ class Image < ActiveRecord::Base
     self.vote ||= 0
     self.win  ||= 0
     self.rate ||= 0
+    self.has_inspect ||= false
   end
 end
