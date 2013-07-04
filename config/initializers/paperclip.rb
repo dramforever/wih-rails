@@ -1,1 +1,1 @@
-Paperclip.options[:command_path] = 'D:\Program Files\ImageMagick'
+Paperclip.options[:command_path] = 'E:/RailsDevTools/ImageMagick'
