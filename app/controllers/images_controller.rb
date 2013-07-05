@@ -8,7 +8,7 @@ class ImagesController < ApplicationController
     else
       raise
     end
-    imgs = Image.where("gender = #{gender} AND has_inspect = 1").all
+    imgs = Image.where("gender = #{gender} AND has_inspect = ?", true).all
     length = imgs.count
     if length<2
      raise "Too few pictures."
@@ -32,10 +32,10 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image_params)
     user_answer = params[:user_answer]
     answer = params[:answer]
     if user_answer.to_i == answer.to_i
+      @image = Image.new(image_params)
       @image.save
     else
       flash[:error] = "错误的验证回答！"
@@ -77,6 +77,7 @@ class ImagesController < ApplicationController
 
   def destroy
     Image.find(params[:id]).destroy
+    redirect_to inspect_images_path
   end
 
   def inspect
@@ -84,7 +85,8 @@ class ImagesController < ApplicationController
   end
 
   def examine
-    #TODO:build it to inspect the imgs
+     Image.find(params[:id]).update! has_inspect: true
+     redirect_to inspect_images_path
   end
 
   private

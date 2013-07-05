@@ -1,1 +1,1 @@
-Paperclip.options[:command_path] = 'E:/RailsDevTools/ImageMagick'
+#Paperclip.options[:command_path] = 'E:/RailsDevTools/ImageMagick'

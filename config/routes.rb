@@ -13,6 +13,7 @@ WihRails::Application.routes.draw do
   resources :images do
     collection do
       get 'inspect', to: 'images#inspect'
+      post ':id', to: 'images#examine'
     end
   end
 
