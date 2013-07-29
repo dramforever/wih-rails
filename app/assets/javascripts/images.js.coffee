@@ -16,7 +16,7 @@ ready= ->
       $("#btn1").attr class: "btn btn-success offset1"
       $("#btn1").html percentage o.image1
 
-      $("#btn2").attr class: "btn btn-success offset1"
+      $("#btn2").attr class: "btn btn-success offset2"
       $("#btn2").html percentage o.image2
 
       $("#selected").val(0)

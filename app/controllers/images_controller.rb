@@ -26,9 +26,17 @@ class ImagesController < ApplicationController
 
   def new
     @image = Image.new
-    rand1 = rand 1..50
-    rand2 = rand 1..50
-    @details = { question: "#{  rand1 } + #{ rand2 } = ?", answer: rand1 + rand2 }
+    rand1 = rand 1..20
+    rand2 = rand 1..20
+    if rand(1..2) == 1
+      question =  "#{  rand1 } + #{ rand2 } = ?"
+      answer = rand1 + rand2
+    else
+      question =  "#{  rand1 } - #{ rand2 } = ?"
+      answer = rand1 - rand2
+    end
+
+    @details = { question: question, answer: answer }
   end
 
   def create
@@ -87,6 +95,17 @@ class ImagesController < ApplicationController
   def examine
      Image.find(params[:id]).update! has_inspect: true
      redirect_to inspect_images_path
+  end
+
+  def top
+    if params[:gender] == "girl"
+      gender = 1
+    elsif params[:gender] == "boy"
+      gender = 0
+    else
+      raise
+    end
+    @images = Image.where("gender = ? AND has_inspect = ?",gender,true).order("rate DESC").limit(10)
   end
 
   private

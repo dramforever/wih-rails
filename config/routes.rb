@@ -21,6 +21,7 @@ WihRails::Application.routes.draw do
   post 'upload', to: 'images#create'
   get 'show/:gender', to: 'images#show', as: :show
   patch 'vote', to: 'images#edit'
+  get 'top/:gender', to: 'images#top', as: :top
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
