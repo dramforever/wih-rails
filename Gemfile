@@ -2,12 +2,14 @@ source 'http://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-
+gem 'rubysl', platform: :rbx
+gem 'iconv'
+gem 'json'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
-# 使用thin作为服务器
-gem 'thin'
+# 使用puma作为服务器
+gem 'puma'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -25,15 +27,7 @@ gem "bootstrap-sass", "~> 2.3.2.0"
 gem "fancybox2-rails", "~> 0.2.4"
 
 # 使用paperclip
-gem "paperclip", git: 'https://github.com/thoughtbot/paperclip.git', branch: 'rails-4'
-
-# 使用cucumber
-#gem 'rspec'
-#gem "selenium-webdriver"
-#gem "cucumber-rails", git: 'https://github.com/cucumber/cucumber-rails.git', branch: 'master_rails4_test', require: false
-
-# 使用database_cleaner
-#gem 'database_cleaner'
+gem "paperclip"
 
 # 使用annotate
 gem 'annotate'
@@ -62,7 +56,7 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
