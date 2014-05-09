@@ -1,7 +1,7 @@
-source 'https://ruby.taobao.org'
+source 'https://ruby.taobao.org/'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.0'
 gem 'rubysl', platform: :rbx
 gem 'iconv'
 gem 'json'
@@ -56,7 +56,12 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
+end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

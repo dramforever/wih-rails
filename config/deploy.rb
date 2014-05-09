@@ -1,13 +1,12 @@
 # config valid only for Capistrano 3.1
-lock '3.1.0'
+lock '3.2.1'
 
-set :application, 'my_app_name'
+set :application, 'wih_rails'
+set :deploy_user 'www-data'
 set :repo_url, 'git@example.com:me/my_repo.git'
 
-require 'puma-capistrano'
-
 # Default branch is :master
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
 # set :deploy_to, '/var/www/my_app'
