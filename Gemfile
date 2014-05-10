@@ -2,14 +2,11 @@ source 'https://ruby.taobao.org/'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
-gem 'rubysl', platform: :rbx
-gem 'iconv'
-gem 'json'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
-# 使用puma作为服务器
-gem 'puma'
+# 使用unicorn作为服务器
+gem 'unicorn'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
