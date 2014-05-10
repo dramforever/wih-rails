@@ -1,9 +1,0 @@
-<% provide :title, "TOP 10" %>
-<div class="row">
-  <% @images.each do |img| %>
-    <div class="span4">
-      <%= image_tag img.img.url :medium %>
-      胜率：<%= img.rate*100.to_i %>
-    </div>
-  <% end%>
-</div>
