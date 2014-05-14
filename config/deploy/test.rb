@@ -18,7 +18,7 @@ role :app, %w{hypernovagama@localhost}
 #server '', user: 'hypernovagama', roles: %w{web app}, my_property: :my_value
 set :deploy_to, '/home/hypernovagama/app/test/wih'
 
-set :bundle_without, [:development, :test, :doc]
+set :bundle_without, %w{development test doc}.join(' ')
 set :rails_env, :test
 set :unicorn_worker_count, 5
 set :enable_ssl, false

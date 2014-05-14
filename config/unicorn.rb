@@ -9,7 +9,7 @@ app_path = "/home/hypernovagama/app/test/wih"
 worker_processes 1
 preload_app true
 timeout 180
-listen "127.0.0.1:9000"
+listen "/tmp/unicorn.wih.sock"
 
 # Spawn unicorn master worker for user apps (group: apps)
 user 'hypernovagama', 'hypernovagama' 
