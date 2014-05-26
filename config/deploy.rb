@@ -1,11 +1,10 @@
-#require 'capistrano-unicorn'
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
 set :application, 'wih'
 set :repo_url, 'https://github.com/hypernovagama/wih-rails.git'
 
-set :deploy_user, 'www-data'
+set :deploy_user, 'hypernovagama'
 
 # Default branch is :master
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -66,18 +65,19 @@ namespace :deploy do
 
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
-    task command, roles: :app, except: {no_release: true} do
-      run "/etc/init.d/unicorn_#{application} #{command}" # Using unicorn as the app server
+    task command do
+      on roles(:app), except: {no_release: true} do
+        run "/etc/init.d/unicorn_#{application} #{command}" # Using unicorn as the app server
+      end
     end
   end
   
-  task :setup_config, roles: :app do
-    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
-    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
-    run "mkdir -p #{shared_path}/config"
-    put File.read("config/database.yml"), "#{shared_path}/config/database.yml"
-    puts "Now edit the config files in #{shared_path}."
+  task :setup_config do
+    on roles(:app, :web) do
+      sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
+      sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+    end  
   end
-  after "deploy:setup", "deploy:setup_config"
+  after :finishing, "deploy:setup_config"
 
 end

@@ -16,7 +16,7 @@ role :app, %w{hypernovagama@localhost}
 # used to set extended properties on the server.
 
 #server '', user: 'hypernovagama', roles: %w{web app}, my_property: :my_value
-set :deploy_to, '/home/hypernovagama/app/test/wih'
+set :deploy_to, '/home/hypernovagama/app/wih'
 
 set :bundle_without, %w{development test doc}.join(' ')
 set :rails_env, :test

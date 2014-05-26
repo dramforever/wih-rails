@@ -38,6 +38,10 @@ gem 'unicorn'
 gem 'capistrano-rails', group: :development
 gem 'capistrano-rvm', group: :development
 
+# Use Cucumber for test
+gem 'cucumber-rails', :require => false, group: :test
+gem 'database_cleaner', group: :test
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
