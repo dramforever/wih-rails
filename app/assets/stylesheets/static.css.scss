@@ -1,0 +1,19 @@
+// Place all the styles related to the static controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.logo
+{
+  font-family: 'Ruda', sans-serif;
+  font-size: 1.5em;
+}
+#firstslide
+{
+  background: image-url('home/bg01.jpg') no-repeat center;
+  height: 797px;
+  h1
+  {
+    font-family: 'Ruda', sans-serif;
+    font-size: 70px;
+    color: #fff;
+  }
+}

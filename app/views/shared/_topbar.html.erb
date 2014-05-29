@@ -1,0 +1,129 @@
+<link href='http://fonts.googleapis.com/css?family=Ruda:700,400&effect=fire-animation' rel='stylesheet' type='text/css'></link>
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <div class="sticky">
+      <nav class="hide-for-small top-bar" data-options="is_hover: false" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <%= link_to 'WIH', root_path, class: "logo" %>
+            </h1>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="left">
+            <li>
+              <% #= link_to t('home.boy'), boy_path %>
+              <a>
+                <%= t('home.boy') %>
+              </a>
+            </li>
+            <li>
+              <% #= link_to t('home.girl'), girl_path %>
+              <a>
+                <%= t('home.girl') %>
+              </a>
+            </li>
+            <li>
+              <% #= link_to t('home.about'), about_path %>
+              <a>
+                <%= t('home.about') %>
+              </a>
+            </li>
+          </ul>
+          <ul class="right">
+          <!--
+              <%# if current_user && current_user.authencated %>
+	                <li class="has-dropdown">
+                  <a>
+                    <%#= t('home.usercenter') %>
+                    <ul class="dropdown">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                  </a>
+                </li>
+              <%# else %>
+	              <%# end %>
+	    <%# end %>
+            -->
+            <li class="has-form">
+              <ul class="button-group radius">
+                <li>
+                  <a class="button">
+                    <%= t('home.login') %>
+                  </a>
+                </li>
+                <li>
+                  <a class="secondary button">
+                    <%= t('home.upload') %>
+                  </a>
+                </li>
+	              </ul>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+	    <nav class="tab-bar show-for-small">
+      <a class="left-off-canvas-toggle menu-icon">
+        <span class="logo">WIH</span>
+      </a>
+    </nav>
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li>
+	  <label class="first">WIH</label>
+	</li>
+        <li>
+          <%= link_to t('home.title.home'), root_path %>
+        </li>
+        <li>
+          <label>
+            <%= t('home.title.vote') %>
+          </label>
+        </li>
+        <li>
+          <% #= link_to t('home.boy'), boy_path %>
+          <a>
+            <%= t('home.boy') %>
+          </a>
+        </li>
+        <li>
+          <% #= link_to t('home.girl'), girl_path %>
+          <a>
+            <%= t('home.girl') %>
+          </a>
+        </li>
+        <li>
+          <label>
+            <%= t('home.title.upload') %>
+          </label>
+        </li>
+        <li class="has-form">
+          <ul class="button-group radius"></ul>
+          <li>
+            <a class="button">
+              <%= t('home.login') %>
+            </a>
+          </li>
+          <li>
+            <a class="secondary button">
+              <%= t('home.upload') %>
+            </a>
+          </li>
+        </li>
+        <li>
+          <label>
+            <%= t('home.title.about') %>
+          </label>
+        </li>
+        <li>
+          <% #= link_to t('home.about'), about_path %>
+          <a>
+            <%= t('home.about') %>
+          </a>
+        </li>
+      </ul>
+    </aside>

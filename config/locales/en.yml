@@ -20,4 +20,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  home:
+    boy: "Guys"
+    girl: "Girls"
+    about: "About"
+    login: "Log In"
+    usercenter: "User Center"
+    upload: "Upload A Photo NOW!"
+    title:
+      home: "Home"
+      vote: "Vote"
+      upload: "Upload"
+      about: "About"
+    desc:
+      subtitle1: "Welcome to"
+      title1_1: "WHO Is "
+      title1_2: "HOTTER"
