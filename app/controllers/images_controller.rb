@@ -1,5 +1,10 @@
 # coding: utf-8
 class ImagesController < ApplicationController
+  
+  ##
+  # 显示随机图片
+  #
+  # 参数: gender: 性别
   def show
     if params[:gender] == "girl"
       gender = 1
@@ -24,6 +29,8 @@ class ImagesController < ApplicationController
     @image2 = Image.find random2
   end
 
+  ##
+  # 上传图片界面
   def new
     @image = Image.new
     rand1 = rand 1..20
@@ -39,6 +46,14 @@ class ImagesController < ApplicationController
     @details = { question: question, answer: answer }
   end
 
+  ##
+  # 接收上传的图片
+  #
+  # 参数：
+  # - user_answer：填写的验证问题答案
+  # - answer：正确的验证问题答案
+  # - image[gender]：性别
+  # - image[img]：上传的图片
   def create
     user_answer = params[:user_answer]
     answer = params[:answer]
@@ -51,6 +66,13 @@ class ImagesController < ApplicationController
     end
   end
 
+  ##
+  # 投票
+  # 
+  # 参数：
+  # - img1：第一张图片的id
+  # - img2：第二张图片的id
+  # - selected：选择第一张还是第二张
   def edit
     @image1 = Image.find params['img1']
     @image2 = Image.find params['img2']
@@ -83,20 +105,35 @@ class ImagesController < ApplicationController
     end
   end
 
+  ## 
+  # 删除一个图片
+  #
+  # 参数：id：要删除的图片id
   def destroy
     Image.find(params[:id]).destroy
     redirect_to inspect_images_path
   end
 
+  ##
+  # 审核图片界面
+  # 
   def inspect
     @inspect_images = Image.where(has_inspect: false).all
   end
 
+  ##
+  # 审核通过一个图片
+  #
+  # 参数： id：要通过的图片
   def examine
      Image.find(params[:id]).update! has_inspect: true
      redirect_to inspect_images_path
   end
 
+  ##
+  # 显示投票最多的10张图片
+  #
+  # 参数：gender：性别
   def top
     if params[:gender] == "girl"
       gender = 1
@@ -109,6 +146,9 @@ class ImagesController < ApplicationController
   end
 
   private
+  
+  ##
+  # 过滤参数
   def image_params
     params.require(:image).permit(:img, :gender)
   end
