@@ -22,6 +22,8 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :img, :content_type => [ "image/jpg" ,"image/jpeg", "image/png" ]
   validates_uniqueness_of :img_fingerprint
 
+  ##
+  # 获得图片的大小
   def resize
     geo = Paperclip::Geometry.from_file(img.queued_for_write[:original])
     if geo.width > geo.height
@@ -32,6 +34,9 @@ class Image < ActiveRecord::Base
   end
 
   private
+
+  ##
+  # 初始化数据
   def default_values
     self.vote ||= 0
     self.win  ||= 0
